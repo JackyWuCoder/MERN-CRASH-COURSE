@@ -1,1 +1,4 @@
 node_modules/
+
+# MongoDB connection string
+.env
