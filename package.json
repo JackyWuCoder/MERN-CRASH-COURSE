@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node backend/server.js"
+    "dev": "nodemon backend/server.js"
   },
   "type": "module",
   "keywords": [],
@@ -17,6 +17,6 @@
     "mongoose": "^8.9.4"
   },
   "devDependencies": {
-    "nodeman": "^1.1.2"
+    "nodemon": "^3.1.9"
   }
 }
