@@ -1,12 +1,19 @@
 // Imports the Express Module and assigns it to "express" (Out of date syntax)
 // const express = require('express');
-import express from 'express'; // Import the Express library
+import express from "express"; // Import the Express library
+// The dotenv library is used to load environment variables from a .env file into your application's process.env object.
+import dotenv from "dotenv"; // Import the dotenv library
+
+// Loads variables defined in your .env file into the process.env object.
+dotenv.config();
 
 const app = express() // Create an instance of an Express application
 
+console.log(process.env.MONGO_URI);
+
 // Define a route for the root URL ("/") that sends "Server is ready" as a response to GET requests.
-app.get("/", (req, res) => {
-    res.send("Server is ready");
+app.get("/products", (req, res) => {
+    
 })
 
 // 5000 (arbitrary choice) is the port number where the Express application will listen for incoming HTTP requests.
