@@ -11,7 +11,24 @@ dotenv.config();
 const app = express() // Create an instance of an Express application
 
 // Define a route for the root URL ("/") that sends "Server is ready" as a response to GET requests.
-app.post("/products", (req, res) => {});
+app.post("/products", async (req, res) => {
+    const product = req.body; // user will send this data
+
+    if (!product.name || !product.price || !product.image)
+    {
+        return res.status(400).json({ success: false, message: "Please provide all fields" });
+    }
+
+    const newProduct = new Product(product)
+
+    try {
+        await newProduct.save();
+        res.status(201).json({ success: true, data: newProduct });
+    } catch (error) {
+        console.error("Error in Create product:", error.message);
+        res.status(500).json({ success: false, message: "Server Error" })
+    }
+});
 
 // 5000 (arbitrary choice) is the port number where the Express application will listen for incoming HTTP requests.
 // () => is a callback function (optional) that is executed when the server successfully starts.
