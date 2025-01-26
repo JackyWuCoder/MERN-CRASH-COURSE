@@ -4,6 +4,7 @@ import express from "express"; // Import the Express library
 // The dotenv library is used to load environment variables from a .env file into your application's process.env object.
 import dotenv from "dotenv"; // Import the dotenv library
 import { connectDB } from './config/db.js'; // Import connectDB async function (named import)
+import Product from './models/product.model.js';
 
 // Loads variables defined in your .env file into the process.env object.
 dotenv.config();
