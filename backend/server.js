@@ -33,6 +33,10 @@ app.post("/api/products", async (req, res) => {
     }
 });
 
+app.delete("/api/products/:id", async (req, res) => {
+    const {id} = req.params;
+})
+
 // 5000 (arbitrary choice) is the port number where the Express application will listen for incoming HTTP requests.
 // () => is a callback function (optional) that is executed when the server successfully starts.
 app.listen(5000, () => {
