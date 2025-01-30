@@ -1,10 +1,11 @@
 // Imports the Express Module and assigns it to "express" (Out of date syntax)
 // const express = require('express');
-import express from "express"; // Import the Express library
+import express from 'express'; // Import the Express library
 // The dotenv library is used to load environment variables from a .env file into your application's process.env object.
-import dotenv from "dotenv"; // Import the dotenv library
+import dotenv from 'dotenv'; // Import the dotenv library
 import { connectDB } from './config/db.js'; // Import connectDB async function (named import)
 import Product from './models/product.model.js';
+import mongoose from 'mongoose';
 
 // Loads variables defined in your .env file into the process.env object.
 dotenv.config();
@@ -58,7 +59,7 @@ app.put("/api/products/:id", async (req, res) => {
 
     const product = req.body;
 
-    if (mongoose.Types.ObjectId.isValid(id)) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({ success: false, message: "Invalid Product Id" })
     }
 
