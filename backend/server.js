@@ -18,7 +18,7 @@ app.use("/api/products", productRoutes);
 
 // 5000 (arbitrary choice) is the port number where the Express application will listen for incoming HTTP requests.
 // () => is a callback function (optional) that is executed when the server successfully starts.
-app.listen({PORT}, () => {
+app.listen(PORT, () => {
     connectDB();
-    console.log('Server started at http://localhost:5000');
+    console.log("Server started at http://localhost:" + PORT);
 })
